@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+<h2 style="margin-top: 40px;margin-left: 20px;">Makalelerim</h2>
+<hr>
+{% if articles  %}
+
+  {% for article in articles %}
+    <div class="div" style="padding: 10px ; border: solid black 5px;background-color: #707070;margin-top: 1px;display: block;position: relative;">
+    <a href="{% url 'Article:article' article.id %}" style=" text-decoration: none;color:aliceblue;">{{article.title}}</a>
+    <div class="right"  style = "position: absolute; right: 2px; top: 6px;">
+    <a class = "btn btn-danger" href="{% url 'Article:update' article.id %}">Düzenle</a>
+    <a class = "btn btn-danger" href="{% url 'Article:delete' article.id %}">Sil</a>
+  </div>
+</div>
+
+  {% endfor   %}
+
+{% endif %}
+
+
+<a href="{% url 'user:addarticle' %}"class = "btn btn-danger" >Makale Ekle</a>
+{% endblock %}

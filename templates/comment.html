@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+
+<h2 style="margin-top: 40px;margin-left: 20px;">Makale Yorum Ekle</h2>
+<hr>
+<form method="post" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit" value = "Submit" class = "btn btn-danger">Ekle</button>
+</form>
+
+
+{% endblock  %}

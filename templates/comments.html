@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block container %}
+<h2 style="margin-top: 40px;margin-left: 20px;">Yorumlar</h2>
+<hr>
+{% if comment  %}
+   
+  {% for article in comment %}
+  <h3>{{article.eser}}</h3>
+    <div class="div" style="padding: 10px ; border: solid black 5px;background-color: #707070;margin-top: 1px;display: block;position: relative;">
+    <h2 style=" text-decoration: none;color:aliceblue;">{{article.point}}</h2>
+    <p style=" text-decoration: none;color:aliceblue;">{{article.exp}}</p>
+    <p>{{article.created_at}}</p>
+</div>
+
+  {% endfor   %}
+
+{% endif %}
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block container %}
+
+<h2>Kayıt Ol</h2>
+<hr>
+<form method="post" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit" value = "Submit" class = "btn btn-danger">Kayıt Ol</button>
+</form>
+
+
+
+{% endblock  %}

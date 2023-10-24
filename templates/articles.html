@@ -1,0 +1,40 @@
+{% extends 'layout.html'  %}
+
+
+
+{% block container %}
+
+<h2 style="margin-top: 40px;margin-left: 20px;">Makaleler</h2>
+<hr>
+{% if articles  %}
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">İd</th>
+      <th scope="col">Author</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created_At</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Assecations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for article in articles %}
+      
+      <th scope="row"><a href="{% url 'Article:article' article.id  %}" style="color: black;">{{article.id}}</a></th>
+      <td><a href="{% url 'Article:article' article.id  %}" style="color: black;">{{article.author}}</a></td>
+      <td><a href="{% url 'Article:article' article.id   %}" style="color: black;">{{article.title}}</a></td>
+      <td><a href="{% url 'Article:article' article.id   %}" style="color: black;">{{article.created_at}}</a></td>
+      <td><a class="btn btn-danger" href="{% url 'Article:comment' article.id %}">Yorumla</a></td>
+      <td><a class="btn btn-danger" href="{% url 'Article:comments' article.id %}">Yorumlamaları Göster</a></td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br>
+<a href="{% url 'user:addarticle' %}"class = "btn btn-danger" >Makale Ekle</a>
+{% endif %}
+{% endblock  %}

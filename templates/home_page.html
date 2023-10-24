@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block container  %}
+
+<h2 style="margin-top: 40px;margin-left: 20px;">AnaSayfa</h1>
+<hr>
+<p>
+    {% if request.user.is_authenticated %}
+
+Giriş Yapılmış,{{request.user.username}}
+
+    {% else %}
+Giriş Yapılmamış
+
+    {% endif %}
+</p>
+{% endblock  %}
